@@ -25,9 +25,9 @@ attrib +s +h +r c:\ProgramData\sysmon
 echo Y | cacls c:\ProgramData\Sysmon /e /p everyone:n
 echo Y | cacls c:\ProgramData\Sysmon /p system:f
 echo Y | cacls c:\ProgramData\Sysmon /p Administrators:f
-sc failure Sysmon actions= restart/10000/restart/10000// reset= 120
+sc failure Sysmon64 actions= restart/10000/restart/10000// reset= 120
 echo [+] Sysmon Directory Permissions Reset and Services Hidden
-sc sdset Sysmon D:(D;;DCLCWPDTSD;;;IU)(D;;DCLCWPDTSD;;;SU)(D;;DCLCWPDTSD;;;BA)(A;;CCLCSWLOCRRC;;;IU)(A;;CCLCSWLOCRRC;;;SU)(A;;CCLCSWRPWPDTLOCRRC;;;SY)(A;;CCDCLCSWRPWPDTLOCRSDRCWDWO;;;BA)S:(AU;FA;CCDCLCSWRPWPDTLOCRSDRCWDWO;;;WD)
+sc sdset Sysmon64 D:(D;;DCLCWPDTSD;;;IU)(D;;DCLCWPDTSD;;;SU)(D;;DCLCWPDTSD;;;BA)(A;;CCLCSWLOCRRC;;;IU)(A;;CCLCSWLOCRRC;;;SU)(A;;CCLCSWRPWPDTLOCRRC;;;SY)(A;;CCDCLCSWRPWPDTLOCRSDRCWDWO;;;BA)S:(AU;FA;CCDCLCSWRPWPDTLOCRSDRCWDWO;;;WD)
 echo [+] Creating Auto Update Task set to Hourly..
 SchTasks /Create /RU SYSTEM /RL HIGHEST /SC HOURLY /TN Update_Sysmon_Rules /TR C:\ProgramData\sysmon\Auto_Update.bat /F /ST %tasktime%
 timeout /t 10
