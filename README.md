@@ -1,6 +1,6 @@
 # sysmon-config 
 
-Credits to SwiftOnSecurity and ion-storm for providing the base fork of this config. Incremental changes have been made to meet my specific needs. Feel free to use or send a pull request.
+Credits to SwiftOnSecurity, ion-storm, ThreatHunting, Beahunt3r, ThisIsNotTheUserYouAreLookingFor, d4rk-d4nph3, Neo23x0, MaxNad, and mdunten for providing the base fork of this config.  Incremental changes have been made to meet my specific needs.  Feel free to use or send a pull request.
 
 ## Use ##
 
