@@ -21,13 +21,13 @@ echo [+] Downloading Sysmon config...
 @powershell (new-object System.Net.WebClient).DownloadFile('https://raw.githubusercontent.com/rothi83/sysmon-config/master/Auto_update.bat','C:\Sysmon\Auto_Update.bat')"
 sysmon64.exe -accepteula -i sysmonconfig-export.xml
 echo [+] Sysmon Successfully Installed!
-attrib +s +h +r c:\Sysmon
-echo Y | cacls c:\Sysmon /e /p everyone:n
-echo Y | cacls c:\Sysmon /p system:f
-echo Y | cacls c:\Sysmon /p Administrators:f
+REM attrib +s +h +r c:\Sysmon
+REM echo Y | cacls c:\Sysmon /e /p everyone:n
+REM echo Y | cacls c:\Sysmon /p system:f
+REM echo Y | cacls c:\Sysmon /p Administrators:f
 sc failure Sysmon64 actions= restart/10000/restart/10000// reset= 120
 echo [+] Sysmon Directory Permissions Reset and Services Hidden
-sc sdset Sysmon64 D:(D;;DCLCWPDTSD;;;IU)(D;;DCLCWPDTSD;;;SU)(D;;DCLCWPDTSD;;;BA)(A;;CCLCSWLOCRRC;;;IU)(A;;CCLCSWLOCRRC;;;SU)(A;;CCLCSWRPWPDTLOCRRC;;;SY)(A;;CCDCLCSWRPWPDTLOCRSDRCWDWO;;;BA)S:(AU;FA;CCDCLCSWRPWPDTLOCRSDRCWDWO;;;WD)
+REM sc sdset Sysmon64 D:(D;;DCLCWPDTSD;;;IU)(D;;DCLCWPDTSD;;;SU)(D;;DCLCWPDTSD;;;BA)(A;;CCLCSWLOCRRC;;;IU)(A;;CCLCSWLOCRRC;;;SU)(A;;CCLCSWRPWPDTLOCRRC;;;SY)(A;;CCDCLCSWRPWPDTLOCRSDRCWDWO;;;BA)S:(AU;FA;CCDCLCSWRPWPDTLOCRSDRCWDWO;;;WD)
 echo [+] Creating Auto Update Task set to Hourly..
 SchTasks /Create /RU SYSTEM /RL HIGHEST /SC HOURLY /TN Update_Sysmon_Rules /TR C:\Sysmon\Auto_Update.bat /F /ST %tasktime%
 timeout /t 10
