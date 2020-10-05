@@ -77,6 +77,7 @@
 	<!-- <PipeMonitoringConfig/> --> <!-- Would manually force-on PipeCreated / PipeConnected events, even without configuration below. Included only documentation. -->
 
 	<CaptureClipboard />
+	<ArchiveDirectory>ProgramData\SysmonArchive</ArchiveDirectory>
 
 	<EventFiltering>
 
