@@ -76,6 +76,8 @@
 	<!-- <ProcessAccessConfig/> --> <!-- Would manually force-on ProcessAccess monitoring, even without configuration below. Included only documentation. -->
 	<!-- <PipeMonitoringConfig/> --> <!-- Would manually force-on PipeCreated / PipeConnected events, even without configuration below. Included only documentation. -->
 
+	<CaptureClipboard />
+
 	<EventFiltering>
 
 	<!--SYSMON EVENT ID 1 : PROCESS CREATION [ProcessCreate]-->
@@ -1102,6 +1104,10 @@
 			<QueryName condition="is">status.thawte.com</QueryName>
 			<QueryName condition="is">ocsp.int-x3.letsencrypt.org</QueryName>
 		</DnsQuery>
+	</RuleGroup>
+	<RuleGroup name="" groupRelation="or">
+		<ClipboardChange onmatch="exclude">
+		</ClipboardChange>
 	</RuleGroup>
 
 	<!--SYSMON EVENT ID 255 : ERROR-->
